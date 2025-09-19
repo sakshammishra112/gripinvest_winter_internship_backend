@@ -176,6 +176,7 @@
 - You can check the table schema here: [schema](https://github.com/sakshammishra112/gripinvest_winter_internship_backend/tree/main/InvestApp2/mysql-init)
 - Even though the **CORN** job runs every 5 minutes you can use the api:```localhost:8080/api/investments/process-maturity``` to mature it immediately.
 - Insert products with **maturitydate** = 0 for testing, else it will take a long time.
+- Don't forget to set up environment variables.
 
 # 🐳 Horizon – Docker Setup Guide
 
