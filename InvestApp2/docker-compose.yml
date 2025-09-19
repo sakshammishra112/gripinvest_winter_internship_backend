@@ -7,8 +7,8 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: miniinvest2
-      MYSQL_USER: springstudent
-      MYSQL_PASSWORD: springstudent
+      MYSQL_USER: name
+      MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_INITDB_SKIP_TZINFO: 1
     ports:
@@ -37,13 +37,13 @@ services:
       - "8080:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/miniinvest2?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-      SPRING_DATASOURCE_USERNAME: springstudent
-      SPRING_DATASOURCE_PASSWORD: springstudent
+      SPRING_DATASOURCE_USERNAME: name
+      SPRING_DATASOURCE_PASSWORD: password
       SPRING_JPA_HIBERNATE_DDL_AUTO: update   # note: underscore not dash
-      GEMINI_API_KEY: ${GEMINI_API_KEY:-AIzaSyBoGg-66M3ipsLZGWzIvXHePuYVqGwLAa4}
-      FINNHUB_API_KEY: ${FINNHUB_API_KEY:-d353h1hr01qhorbgepkgd353h1hr01qhorbgepl0}
-      EMAIL_USERNAME: ${EMAIL_USERNAME:-thinkbeyond112@gmail.com}
-      EMAIL_PASSWORD: ${EMAIL_PASSWORD:-nsew yvng umkv iblt}
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      FINNHUB_API_KEY: ${FINNHUB_API_KEY}
+      EMAIL_USERNAME: ${EMAIL_USERNAME}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD}
 
 volumes:
   mysql_data:
