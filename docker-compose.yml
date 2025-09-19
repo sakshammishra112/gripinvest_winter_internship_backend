@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: investapp-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: miniinvest2
+      MYSQL_USER: springstudent
+      MYSQL_PASSWORD: springstudent
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_INITDB_SKIP_TZINFO: 1
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command: 
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD-SHELL", "mysql -u root -prootpassword -e 'SELECT 1;' || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  backend:
+    build: .
+    container_name: investapp-backend
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/miniinvest2?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: springstudent
+      SPRING_DATASOURCE_PASSWORD: springstudent
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update   # note: underscore not dash
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-AIzaSyBoGg-66M3ipsLZGWzIvXHePuYVqGwLAa4}
+      FINNHUB_API_KEY: ${FINNHUB_API_KEY:-d353h1hr01qhorbgepkgd353h1hr01qhorbgepl0}
+      EMAIL_USERNAME: ${EMAIL_USERNAME:-thinkbeyond112@gmail.com}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD:-nsew yvng umkv iblt}
+
+volumes:
+  mysql_data:
