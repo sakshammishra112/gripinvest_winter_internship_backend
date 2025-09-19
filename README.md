@@ -169,7 +169,7 @@
  }
 ```
 
-- [PostMan link For API testing](https://web.postman.co/workspace/My-Workspace~4169547d-7ed3-4fc2-85e5-88d8a6c21b6c/collection/40730513-80c6c200-e40d-4431-a5dd-fc2a051dfc0b?action=share&source=copy-link&creator=40730513)
+- [PostMan link For API testing](https://drive.google.com/file/d/1EOoWwL6HXueDdtDSYFTXUiR-RNpRLa8m/view?usp=drive_link)
 
 ## Note:
 - Firstly register(```/api/users/register```) as **ADMIN** when first starting up the backend after setting up the Mysql.
@@ -192,15 +192,6 @@ This guide explains how to build and run the **Horizon Investment Platform** usi
 
 ---
 
-## 📦 Project Structure (Typical)
-
-```
-horizon/
-├── InvestApp2/             # Spring Boot application
-│   ├── docker-compose.yml
-└── frontend/               # Vite/React application
-    └── docker-compose.yml
-
 ## 🚀 Frontend Setup
 
 The frontend is a **Vite + React** app containerized to run on **port 5173** locally.
@@ -219,6 +210,11 @@ This command builds the Docker image defined in the docker-compose.yml.
 
 ```bash
 docker run -p 5173:80 horizon-app
+```
+
+## Frontend Docker Pull
+```bash
+docker pull saksham112/horizon-app:v1
 ```
 
 - `5173` → Local host port where you'll access the app
