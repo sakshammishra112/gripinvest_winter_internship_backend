@@ -168,7 +168,7 @@
    "password": "StrongPass@123"
  }
 ```
-
+### Postman API's:
 - [PostMan link For API testing](https://drive.google.com/file/d/1EOoWwL6HXueDdtDSYFTXUiR-RNpRLa8m/view?usp=drive_link)
 
 ## Note:
