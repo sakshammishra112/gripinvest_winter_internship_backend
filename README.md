@@ -1,6 +1,6 @@
 # 💹 Horizon – Investment Platform
 
-**Horizon** is a **Spring Boot–based backend API** that enables users to:
+**Horizon** is an investment platform that enables users to:
 
 * **Register** and **log in securely** using **JWT authentication**.  
 * **Browse investment products** and create new investments.  
